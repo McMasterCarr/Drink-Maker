@@ -63,62 +63,63 @@ try:
     time.sleep(3)
     logging.info("show image")
     '''
-    # Show Possible Drinks
-    # Blue
-    image = Image.open('../pic/BlueDrink.jpg')	
-    im_r=image.rotate(180)
-    disp.ShowImage(im_r)
-    time.sleep(1)
-    # Green
-    image = Image.open('../pic/GreenDrink.jpg')	
-    im_r=image.rotate(180)
-    disp.ShowImage(im_r)
-    time.sleep(1)
-    # Orange 
-    image = Image.open('../pic/OrangeDrink.jpg')	
-    im_r=image.rotate(180)
-    disp.ShowImage(im_r)
-    time.sleep(1)
-    # Red
-    image = Image.open('../pic/RedDrink.jpg')	
-    im_r=image.rotate(180)
-    disp.ShowImage(im_r)
-    time.sleep(1)
+    while (True):
+        # Show Possible Drinks
+        # Blue
+        image = Image.open('../pic/BlueDrink.jpg')	
+        im_r=image.rotate(180)
+        disp.ShowImage(im_r)
+        time.sleep(5)
+        # Green
+        image = Image.open('../pic/GreenDrink.jpg')	
+        im_r=image.rotate(180)
+        disp.ShowImage(im_r)
+        time.sleep(5)
+        # Orange 
+        image = Image.open('../pic/OrangeDrink.jpg')	
+        im_r=image.rotate(180)
+        disp.ShowImage(im_r)
+        time.sleep(5)
+        # Red
+        image = Image.open('../pic/RedDrink.jpg')	
+        im_r=image.rotate(180)
+        disp.ShowImage(im_r)
+        time.sleep(5)
 
-    #Drink Animation
-    #   25%
-    for x in range(1, 10):
-        image = Image.open('../pic/25_Filling_1.jpg')	
+        #Drink Animation
+        #   25%
+        for x in range(1, 10):
+            image = Image.open('../pic/25_Filling_1.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+            image = Image.open('../pic/25_Filling_2.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+            image = Image.open('../pic/25_Filling_3.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+        #   50%
+        for x in range(1, 10):
+            image = Image.open('../pic/50_Filling_1.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+            image = Image.open('../pic/50_Filling_2.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+            image = Image.open('../pic/50_Filling_3.jpg')	
+            im_r=image.rotate(180)
+            disp.ShowImage(im_r)
+            time.sleep(.25)
+        image = Image.open('../pic/done.jpg')	
         im_r=image.rotate(180)
         disp.ShowImage(im_r)
-        time.sleep(.25)
-        image = Image.open('../pic/25_Filling_2.jpg')	
-        im_r=image.rotate(180)
-        disp.ShowImage(im_r)
-        time.sleep(.25)
-        image = Image.open('../pic/25_Filling_3.jpg')	
-        im_r=image.rotate(180)
-        disp.ShowImage(im_r)
-        time.sleep(.25)
-    #   50%
-    for x in range(1, 10):
-        image = Image.open('../pic/50_Filling_1.jpg')	
-        im_r=image.rotate(180)
-        disp.ShowImage(im_r)
-        time.sleep(.25)
-        image = Image.open('../pic/50_Filling_2.jpg')	
-        im_r=image.rotate(180)
-        disp.ShowImage(im_r)
-        time.sleep(.25)
-        image = Image.open('../pic/50_Filling_3.jpg')	
-        im_r=image.rotate(180)
-        disp.ShowImage(im_r)
-        time.sleep(.25)
-    image = Image.open('../pic/done.jpg')	
-    im_r=image.rotate(180)
-    disp.ShowImage(im_r)
-    time.sleep(15)
-    disp.module_exit()
+        time.sleep(15)
+        disp.module_exit()
     logging.info("quit:")
 except IOError as e:
     logging.info(e)    
