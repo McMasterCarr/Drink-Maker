@@ -119,7 +119,7 @@ try:
         im_r=image.rotate(180)
         disp.ShowImage(im_r)
         time.sleep(15)
-        disp.module_exit()
+    disp.module_exit()
     logging.info("quit:")
 except IOError as e:
     logging.info(e)    
