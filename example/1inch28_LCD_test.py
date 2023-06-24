@@ -6,7 +6,7 @@ import sys
 import time
 import logging
 import spidev as SPI
-from lib2 import LCD_1inch28
+from lib2.lib2 import LCD_1inch28
 sys.path.append("..")
 from PIL import Image,ImageDraw,ImageFont
 

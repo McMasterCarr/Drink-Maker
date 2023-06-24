@@ -79,7 +79,6 @@ try:
     logging.info("show image")
     '''
     while (True):
-        '''
         # Show Possible Drinks
         # Blue
         image = Image.open('../pic/BlueDrink.jpg')	
@@ -135,22 +134,8 @@ try:
         im_r=image.rotate(180)
         disp.ShowImage(im_r)
         time.sleep(15)
-        '''
-        clkState = GPIO.input(clk)
-        dtState = GPIO.input(dt)
-        if clkState != clkLastState:
-                if dtState != clkState:
-                        counter += 1
-                else:
-                        counter -= 1
-                if counter <= 25:   # Rotation Left?
-                      counter = 0
-                      print("Rotaiton Left?")
-                if counter <= -25:  # Rotation Right?
-                      counter = 0
-                      print("Rotation Right?")       
-        clkLastState = clkState
-        time.sleep(0.01)
+    disp.module_exit()
+    logging.info("quit:")
 except IOError as e:
     logging.info(e)    
 except KeyboardInterrupt:
