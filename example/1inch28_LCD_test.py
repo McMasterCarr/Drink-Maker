@@ -21,7 +21,8 @@ try:
     # display with hardware SPI:
     ''' Warning!!!Don't  creation of multiple displayer objects!!! '''
     #disp = LCD_1inch28.LCD_1inch28(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
-    disp = LCD_1inch28.LCD_1inch28()
+    disp = LCD_1inch28(spi=SPI.SpiDev(bus, device),spi_freq=10000000,rst=RST,dc=DC,bl=BL)
+    #disp = LCD_1inch28.LCD_1inch28()
     # Initialize library.
     disp.Init()
     # Clear display.
