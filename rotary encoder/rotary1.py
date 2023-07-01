@@ -6,7 +6,7 @@ def my_callback(scale_position):
     print('Hello world! The scale position is {}'.format(scale_position))
 
 # Init the encoder pins
-my_encoder = pyky040.Encoder(CLK=17, DT=18, SW=26)
+my_encoder = pyky040.Encoder(CLK=22, DT=4, SW=6)
 
 # Or the encoder as a device (must be installed on the system beforehand!)
 # my_encoder = pyky040.Encoder(device='/dev/input/event0')
