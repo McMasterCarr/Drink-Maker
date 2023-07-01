@@ -10,6 +10,10 @@ from lib2_library.lib2 import LCD_1inch28
 sys.path.append("..")
 from PIL import Image,ImageDraw,ImageFont
 
+# Rotary Encoder
+from pyky040 import pyky040
+
+
 # Raspberry Pi pin configuration:
 RST = 27
 DC = 25
