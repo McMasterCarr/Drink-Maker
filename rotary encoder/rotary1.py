@@ -1,54 +1,25 @@
-import RPi.GPIO as GPIO
+# Import the module
+from pyky040 import pyky040
 
-# Pin Definitions
-SW_PIN = 6  # Switch pin
-DT_PIN = 4  # DT pin
-CLK_PIN = 22  # CLK pin
+# Define your callback
+def my_callback(scale_position):
+    print('Hello world! The scale position is {}'.format(scale_position))
 
-# GPIO setup
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(SW_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.setup(DT_PIN, GPIO.IN)
-GPIO.setup(CLK_PIN, GPIO.IN)
+# Init the encoder pins
+my_encoder = pyky040.Encoder(CLK=17, DT=18, SW=26)
 
-# Variables
-counter = 0  # Encoder counter value
-clk_state = GPIO.input(CLK_PIN)
-dt_state = GPIO.input(DT_PIN)
+# Or the encoder as a device (must be installed on the system beforehand!)
+# my_encoder = pyky040.Encoder(device='/dev/input/event0')
 
-# Callback function for CLK pin interrupt
-def clk_callback(channel):
-    global counter, clk_state, dt_state
+# Setup the options and callbacks (see documentation)
+my_encoder.setup(scale_min=0, scale_max=100, step=1, chg_callback=my_callback)
 
-    # Read the current states of CLK and DT pins
-    clk_state_new = GPIO.input(CLK_PIN)
-    dt_state_new = GPIO.input(DT_PIN)
+# Launch the listener
+my_encoder.watch()
 
-    if clk_state_new != clk_state:
-        # CLK pin has changed, check DT pin
-        if dt_state_new != clk_state_new:
-            # DT pin is different from CLK, clockwise rotation
-            counter += 1
-        else:
-            # DT pin is the same as CLK, counter-clockwise rotation
-            counter -= 1
-
-    # Update the states for the next interrupt
-    clk_state = clk_state_new
-    dt_state = dt_state_new
-
-# Interrupt event detection for CLK pin falling edge
-GPIO.add_event_detect(CLK_PIN, GPIO.FALLING, callback=clk_callback, bouncetime=10)
-
-# Main program loop
-try:
-    while True:
-        # Check the state of the switch
-        if GPIO.input(SW_PIN) == GPIO.LOW:
-            print("Switch Pressed")
-        
-        # Do other tasks or actions based on the counter value
-        
-except KeyboardInterrupt:
-    # Clean up GPIO on program exit
-    GPIO.cleanup()
+# Mess with the encoder...
+# > Hello world! The scale position is 1
+# > Hello world! The scale position is 2
+# > Hello world! The scale position is 3
+# > Hello world! The scale position is 2
+# > Hello world! The scale position is 1
