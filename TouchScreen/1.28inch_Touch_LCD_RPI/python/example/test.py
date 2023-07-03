@@ -19,7 +19,6 @@ TP_INT = 4
 
 drinkSelection = 0
 drinkSelection = 0
-drinkSize = 0
 
 Mode = 0
 logging.basicConfig(level=logging.DEBUG)
@@ -42,6 +41,8 @@ def dispense():
     print("\n\nDispense!\n\n")
 
 def sizeOptions():
+    global drinkSize
+    drinkSize = 0
     image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
     draw = ImageDraw.Draw(image1)
     while touch.Gestures != 0x0C:
