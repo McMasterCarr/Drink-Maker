@@ -75,7 +75,6 @@ try:
                     if drink_list_index > len(drink_data) -1 :
                         drink_list_index -= 1
                   
-                print(str(drink_list_index))
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
