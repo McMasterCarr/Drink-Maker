@@ -66,11 +66,11 @@ try:
         while True:
             draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
             while touch.Gestures != 0x03 or touch.Gestures != 0x04:
-                if touch.Gestures == 0x03:
+                if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
                         drink_list_index = 0
-                if touch.Gestures == 0x04:
+                if touch.Gestures != 0x04:
                     drink_list_index+=1
 
                 print(str(drink_list_index))
