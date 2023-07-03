@@ -17,6 +17,10 @@ BL = 18
 
 TP_INT = 4
 
+drinkSelection = 0
+drinkSelection = 0
+drinkSize = 0
+
 Mode = 0
 logging.basicConfig(level=logging.DEBUG)
 global Flag
@@ -34,7 +38,27 @@ def Int_Callback(TP_INT):
         else:
             touch.Gestures = touch.Touch_Read_Byte(0x01)
 
+def dispense():
+    print("\n\nDispense!\n\n")
 
+def sizeOptions():
+    image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
+    draw = ImageDraw.Draw(image1)
+    while touch.Gestures != 0x0C:
+        if touch.Gestures != 0x03:
+            drinkSize-=1
+            if drinkSize < 0:
+                drinkSize = 0
+        if touch.Gestures != 0x04:
+            drinkSize+=1
+            if drinkSize > 3 :
+                drinkSize = 3
+        draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
+        draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
+        disp.ShowImage(image1)
+        time.sleep(0.001)
+    if touch.Gestures == 0x0C:
+            dispense()
 try:
     while True:
         ''' Warning!!!Don't  create multiple displayer objects!!! '''
@@ -65,7 +89,10 @@ try:
         drink_list_index = 0
         draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
         while True:
-            while touch.Gestures != 0x03 or touch.Gestures != 0x04:
+            while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
+                if touch.Gestures != 0x0C:
+                    drink_selection = drink_list_index
+                    sizeOptions()
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
@@ -74,7 +101,6 @@ try:
                     drink_list_index+=1
                     if drink_list_index > len(drink_data) -1 :
                         drink_list_index -= 1
-                  
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
