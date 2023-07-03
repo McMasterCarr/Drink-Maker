@@ -72,6 +72,8 @@ try:
                         drink_list_index = 0
                 if touch.Gestures == 0x04:
                     drink_list_index+=1
+
+                print(str(drink_list_index))
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 time.sleep(0.001)
