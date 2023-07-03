@@ -19,6 +19,7 @@ TP_INT = 4
 
 drinkSelection = 0
 drinkSelection = 0
+global dispensing
 
 Mode = 0
 logging.basicConfig(level=logging.DEBUG)
@@ -39,6 +40,8 @@ def Int_Callback(TP_INT):
 
 def dispense():
     print("\n\nDispense!\n\n")
+    time.sleep(2)
+    dispensing = False
 
 def sizeOptions():
     global drinkSize
@@ -61,7 +64,9 @@ def sizeOptions():
         disp.ShowImage(image1)
         time.sleep(0.5)
     if touch.Gestures == 0x0B:
-        dispense()
+        dispensing = True
+        while dispensing == True:
+            dispense()
     time.sleep(0.1)
 try:
     while True:
