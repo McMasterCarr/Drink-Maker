@@ -68,6 +68,7 @@ def sizeOptions():
         while dispensing == True:
             dispense()
     time.sleep(0.1)
+
 try:
     while True:
         ''' Warning!!!Don't  create multiple displayer objects!!! '''
@@ -99,7 +100,8 @@ try:
         draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
-                if touch.Gestures == 0x0B:
+                print("\nTouch GestureS" + str(touch.Gestures))
+                if touch.Gestures != 0x0B:
                     drink_selection = drink_list_index
                     sizeOptions()
                 if touch.Gestures != 0x03:
