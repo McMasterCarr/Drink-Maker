@@ -73,9 +73,10 @@ try:
             draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
             while touch.Gestures != 0x04:
                 #   change code/drink_data to include text location coordinates
-                draw.text((55, 90), drink_data[drink_list_index]['name'], fill = "BLACK",font=Font)
+                draw.text((55, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 time.sleep(0.001)
+            drink_list_index+=1
 
         '''
         draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
