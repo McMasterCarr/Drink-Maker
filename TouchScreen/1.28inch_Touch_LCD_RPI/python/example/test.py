@@ -100,10 +100,12 @@ try:
         draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
-                print("\nTouch GestureS" + str(touch.Gestures))
+                print("\nTouch Gesture:  " + str(touch.Gestures))
+                '''
                 if touch.Gestures != 0x0B:
                     drink_selection = drink_list_index
                     sizeOptions()
+                '''
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
