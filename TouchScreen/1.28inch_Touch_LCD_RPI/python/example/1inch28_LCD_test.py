@@ -23,6 +23,9 @@ global Flag
 
 touch = Touch_1inch28.Touch_1inch28()
 
+drink_data = [{'name': 'Margarita', 'primary_color': 'LIME',
+         'secondary_color': 'WHITE'}, {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'}]
+
 def Int_Callback(TP_INT):       
         if Mode == 1:
             global Flag 
@@ -57,20 +60,24 @@ try:
         draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
         draw.text((65, 120), 'By Seneca', fill = "BLACK",font=Font)
         disp.ShowImage(image1)
-        time.sleep(5.5)
-        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",45)    
-        draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
-        while touch.Gestures != 0x03:
-            draw.text((65, 90), 'LEFT', fill = "BLACK",font=Font)
-            disp.ShowImage(image1)
-            time.sleep(0.001)
+        time.sleep(1.5)
+        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",45)
+        drink_list_index = 0
+        while True:
+            draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
+            while touch.Gestures != 0x03:
+                draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
+                disp.ShowImage(image1)
+                time.sleep(0.001)
+            drink_list_index-=1
+            draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
+            while touch.Gestures != 0x04:
+                #   change code/drink_data to include text location coordinates
+                draw.text((55, 90), drink_data[drink_list_index]['name'], fill = "BLACK",font=Font)
+                disp.ShowImage(image1)
+                time.sleep(0.001)
 
-        draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
-        while touch.Gestures != 0x04:
-            draw.text((55, 90), 'RIGHT', fill = "BLACK",font=Font)
-            disp.ShowImage(image1)
-            time.sleep(0.001)
-
+        '''
         draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
         while touch.Gestures != 0x0C:
             draw.text((35, 90), 'Long Press', fill = "BLACK",font=Font)
@@ -82,6 +89,7 @@ try:
             draw.text((30, 90), 'Double Click', fill = "BLACK",font=Font)
             disp.ShowImage(image1)
             time.sleep(0.001)
+        '''
 
 except IOError as e:
     logging.info(e)    
