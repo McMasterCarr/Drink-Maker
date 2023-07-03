@@ -51,24 +51,13 @@ try:
     #Gestures
     Mode = 0
     touch.Set_Mode(Mode)
-    Font = ImageFont.truetype("../Font/Font01.ttf",24)
-    draw.text((65, 80), 'Gesture test', fill = "BLACK",font=Font)
-    draw.text((20, 120), 'Complete as prompted', fill = "BLACK",font=Font)
+    Font1 = ImageFont.truetype("../Font/Font02.ttf",24)
+    Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",24)
+    draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
+    draw.text((20, 120), 'By Seneca', fill = "BLACK",font=Font)
     disp.ShowImage(image1)
-    time.sleep(1.5)
-    Font = ImageFont.truetype("../Font/Font01.ttf",35)
-    draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
-    while touch.Gestures != 0x01:
-        draw.text((90, 90), 'UP', fill = "BLACK",font=Font)
-        disp.ShowImage(image1)
-        time.sleep(0.001)
-
-    draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
-    while touch.Gestures != 0x02:
-        draw.text((50, 90), 'DOWM', fill = "BLACK",font=Font)
-        disp.ShowImage(image1)
-        time.sleep(0.001)
-    
+    time.sleep(5.5)
+    Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",35)    
     draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
     while touch.Gestures != 0x03:
         draw.text((65, 90), 'LEFT', fill = "BLACK",font=Font)
