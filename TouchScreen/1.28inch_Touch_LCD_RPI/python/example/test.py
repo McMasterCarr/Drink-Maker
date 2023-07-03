@@ -91,7 +91,7 @@ try:
         draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
-                if touch.Gestures != 0x0C:
+                if touch.Gestures == 0x0C:
                     drink_selection = drink_list_index
                     sizeOptions()
                 if touch.Gestures != 0x03:
@@ -105,7 +105,7 @@ try:
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
-                time.sleep(0.001)
+                time.sleep(0.1)
             '''
             draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
             while touch.Gestures != 0x04:
