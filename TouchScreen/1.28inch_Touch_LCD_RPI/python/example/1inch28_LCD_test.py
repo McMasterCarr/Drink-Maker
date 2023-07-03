@@ -55,10 +55,10 @@ try:
         Font1 = ImageFont.truetype("../Font/Font02.ttf",24)
         Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",24)
         draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
-        draw.text((40, 120), 'By Seneca', fill = "BLACK",font=Font)
+        draw.text((65, 120), 'By Seneca', fill = "BLACK",font=Font)
         disp.ShowImage(image1)
         time.sleep(5.5)
-        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",35)    
+        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",45)    
         draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
         while touch.Gestures != 0x03:
             draw.text((65, 90), 'LEFT', fill = "BLACK",font=Font)
