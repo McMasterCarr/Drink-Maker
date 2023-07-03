@@ -45,6 +45,8 @@ def sizeOptions():
     drinkSize = 1
     image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
     draw = ImageDraw.Draw(image1)
+    draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
+    time.sleep(0.5)
     while touch.Gestures != 0x0B:
         if touch.Gestures != 0x03:
             drinkSize-=1
@@ -54,7 +56,7 @@ def sizeOptions():
             drinkSize+=1
             if drinkSize > 3 :
                 drinkSize = 3
-        draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
+        
         draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
         disp.ShowImage(image1)
         time.sleep(0.5)
