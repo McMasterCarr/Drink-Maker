@@ -72,7 +72,7 @@ def sizeOptions():
             while dispensing == True:
                 dispense()
         touch.Gestures = 0x01
-    time.sleep(0.01)
+    time.sleep(0.001)
 
 try:
     while True:
@@ -121,7 +121,7 @@ try:
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
-                time.sleep(2)
+                time.sleep(0.001)
         '''
         #Gestures
         Mode = 0
