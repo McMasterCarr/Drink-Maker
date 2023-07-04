@@ -19,7 +19,7 @@ TP_INT = 4
 
 drinkSelection = 0
 drinkSelection = 0
-global dispensing
+dispensing = False
 
 Mode = 0
 logging.basicConfig(level=logging.DEBUG)
@@ -45,16 +45,17 @@ def Int_Callback(TP_INT):
 def dispense():
     print("\n\nDispense!\n\n")
     time.sleep(2)
-    dispensing = False
 
 def sizeOptions():
     global drinkSize
     drinkSize = 1
-    image1 = Image.new("RGB", (disp.width, disp.height), "WHITE")
-    draw = ImageDraw.Draw(image1)
+    image2 = Image.new("RGB", (disp.width, disp.height), "WHITE")
+    draw = ImageDraw.Draw(image2)
     draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
+    draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
+    disp.ShowImage(image1)
     time.sleep(0.5)
-    while touch.Gestures == 0x03 or touch.Gestures == 0x04:
+    while dispensing == False:
         if touch.Gestures == 0x03:
             drinkSize-=1
             if drinkSize <= 0:
@@ -63,15 +64,11 @@ def sizeOptions():
             drinkSize+=1
             if drinkSize > 3 :
                 drinkSize = 3
-        draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
-        draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
-        disp.ShowImage(image1)
-        touch.Gestures = 0x01
-        time.sleep(0.001)
-    if touch.Gestures == 0x05:
-        dispensing = True
-        while dispensing == True:
+        if touch.Gestures == 0x05:
+            dispensing = True
             dispense()
+        touch.Gestures = 0x01
+        time.sleep(0.01)
 
 try:
     while True:
@@ -123,6 +120,7 @@ try:
             if touch.Gestures == 0x05:
                 touch.Gesture=0x01
                 sizeOptions()
+                dispensing = False
             
                 
         '''
