@@ -130,6 +130,7 @@ try:
                 drink_list_index = 0
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
+                disp.ShowImage(image1)
             
                 
         '''
