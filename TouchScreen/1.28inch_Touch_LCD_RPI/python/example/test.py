@@ -54,7 +54,7 @@ def sizeOptions():
     draw = ImageDraw.Draw(image2)
     draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
     draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
-    disp.ShowImage(image1)
+    disp.ShowImage(image2)
     time.sleep(0.5)
     while dispensing == False:
         if touch.Gestures == 0x03:
