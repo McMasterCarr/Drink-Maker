@@ -27,8 +27,12 @@ global Flag
 
 touch = Touch_1inch28.Touch_1inch28()
 
-drink_data = [{'name': 'Margarita', 'primary_color': 'LIME',
-         'secondary_color': 'WHITE'}, {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'}]
+drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE'},
+                {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'},
+                {'name':'Manhattan', 'primary_color':'bronze','secondary_color':'BLACK'},
+                {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'grapefruit'},
+                {'name':'Screwdriver', 'primary_color':'safron','secondary_color':'orange'},
+                ]
 
 def Int_Callback(TP_INT):       
         if Mode == 1:
@@ -100,11 +104,41 @@ try:
         draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
-                print("\nTouch Gesture:  " + str(touch.Gestures))
+                print('\nTouch Gesture:  ' + str(touch.Gestures))
+                if touch.Gestures != 0x03:
+                    drink_list_index-=1
+                    if drink_list_index < 0:
+                        drink_list_index = 0
+                if touch.Gestures != 0x04:
+                    drink_list_index+=1
+                    if drink_list_index > len(drink_data) -1 :
+                        drink_list_index -= 1
+                draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
+                draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
+                disp.ShowImage(image1)
+                time.sleep(0.1)
+        '''
+        #Gestures
+        Mode = 0
+        touch.Set_Mode(Mode)
+        Font1 = ImageFont.truetype("../Font/Font02.ttf",24)
+        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",24)
+        draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
+        draw.text((65, 120), 'By Seneca', fill = "BLACK",font=Font)
+        disp.ShowImage(image1)
+        time.sleep(1.5)
+        Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",45)
+        drink_list_index = 0
+        draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
+        while True:
+            while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
+                print('\nTouch Gesture:  ' + str(touch.Gestures))
+                '''
                 '''
                 if touch.Gestures != 0x0B:
                     drink_selection = drink_list_index
                     sizeOptions()
+                '''
                 '''
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
@@ -118,6 +152,8 @@ try:
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 time.sleep(0.1)
+            '''
+            
             '''
             draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
             while touch.Gestures != 0x04:
