@@ -31,7 +31,7 @@ drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color'
                 {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'},
                 {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK'},
                 {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'OrangeRed'},
-                {'name':'Screwdriver', 'primary_color':'safron','secondary_color':'orange'},
+                {'name':'Screwdriver', 'primary_color':'coral','secondary_color':'orange'},
                 ]
 
 def Int_Callback(TP_INT):       
