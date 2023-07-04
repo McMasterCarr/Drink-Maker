@@ -48,6 +48,7 @@ def dispense():
 
 def sizeOptions():
     global drinkSize
+    dispensing = False
     drinkSize = 1
     image2 = Image.new("RGB", (disp.width, disp.height), "WHITE")
     draw = ImageDraw.Draw(image2)
