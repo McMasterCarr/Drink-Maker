@@ -65,7 +65,7 @@ def sizeOptions():
             drinkSize+=1
             if drinkSize > 3 :
                 drinkSize = 3
-        if touch.Gestures == 0x05:
+        if touch.Gestures == 0x0C:
             dispensing = True
             dispense()
         draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
