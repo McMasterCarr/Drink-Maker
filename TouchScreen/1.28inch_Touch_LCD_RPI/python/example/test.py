@@ -118,7 +118,7 @@ try:
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 
-                time.sleep(0.001)
+                time.sleep(1)
         '''
         #Gestures
         Mode = 0
