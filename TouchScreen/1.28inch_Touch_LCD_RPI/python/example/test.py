@@ -29,7 +29,7 @@ touch = Touch_1inch28.Touch_1inch28()
 
 drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE'},
                 {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'},
-                {'name':'Manhattan', 'primary_color':'bronze','secondary_color':'BLACK'},
+                {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK'},
                 {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'grapefruit'},
                 {'name':'Screwdriver', 'primary_color':'safron','secondary_color':'orange'},
                 ]
@@ -160,7 +160,7 @@ try:
             drink_list_index+=1
             
 
-            
+
         draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
         while touch.Gestures != 0x0C:
             draw.text((35, 90), 'Long Press', fill = "BLACK",font=Font)
