@@ -133,13 +133,9 @@ try:
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
                 print('\nTouch Gesture:  ' + str(touch.Gestures))
-                '''
-                '''
                 if touch.Gestures != 0x0B:
                     drink_selection = drink_list_index
                     sizeOptions()
-                '''
-                '''
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
@@ -152,9 +148,9 @@ try:
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 time.sleep(0.1)
-            '''
-            
-            '''
+
+
+
             draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
             while touch.Gestures != 0x04:
                 #   change code/drink_data to include text location coordinates
@@ -162,9 +158,9 @@ try:
                 disp.ShowImage(image1)
                 time.sleep(0.001)
             drink_list_index+=1
-            '''
+            
 
-        '''
+            
         draw.rectangle((0,0,240,240),fill = "WHITE", outline=None, width=1)
         while touch.Gestures != 0x0C:
             draw.text((35, 90), 'Long Press', fill = "BLACK",font=Font)
