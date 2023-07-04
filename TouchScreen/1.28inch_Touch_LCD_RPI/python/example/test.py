@@ -68,10 +68,10 @@ def sizeOptions():
         if touch.Gestures == 0x0C:
             dispense()
             dispensing = True
+        touch.Gestures = 0x01
         draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
         draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
         disp.ShowImage(image2)
-        touch.Gestures = 0x01
         time.sleep(0.01)
 
 try:
