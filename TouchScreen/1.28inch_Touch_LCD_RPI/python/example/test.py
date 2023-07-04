@@ -55,7 +55,7 @@ def sizeOptions():
     draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
     draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
     disp.ShowImage(image2)
-    time.sleep(0.5)
+    time.sleep(0.1)
     while dispensing == False:
         if touch.Gestures == 0x03:
             drinkSize-=1
@@ -68,6 +68,9 @@ def sizeOptions():
         if touch.Gestures == 0x05:
             dispensing = True
             dispense()
+        draw.rectangle((0,0,240,240),fill = "BLACK", outline=None, width=1)
+        draw.text((65, 90), str(drinkSize), fill = "WHITE",font=Font)
+        disp.ShowImage(image2)
         touch.Gestures = 0x01
         time.sleep(0.01)
 
