@@ -44,7 +44,7 @@ def Int_Callback(TP_INT):
 
 def dispense():
     print("\n\nDispense!\n\n")
-    time.sleep(2)
+    time.sleep(0.1)
 
 def sizeOptions():
     global drinkSize
