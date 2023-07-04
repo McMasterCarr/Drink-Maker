@@ -19,7 +19,7 @@ TP_INT = 4
 
 drinkSelection = 0
 drinkSelection = 0
-#dispensing = False
+#]dispensing = False
 
 Mode = 0
 logging.basicConfig(level=logging.DEBUG)
@@ -71,6 +71,7 @@ def sizeOptions():
         time.sleep(0.01)
 
 try:
+    global dispensing
     dispensing = False
     while True:
         ''' Warning!!!Don't  create multiple displayer objects!!! '''
