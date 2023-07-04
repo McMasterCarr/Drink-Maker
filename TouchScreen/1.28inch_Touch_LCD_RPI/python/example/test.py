@@ -119,8 +119,9 @@ try:
                 disp.ShowImage(image1)
                 time.sleep(0.001)
                 touch.Gestures = 0x01
-                
-            if touch.Gestures == 0x0C:
+
+            if touch.Gestures == 0x05:
+                touch.Gesture=0x01
                 sizeOptions()
             
                 
