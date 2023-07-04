@@ -57,11 +57,11 @@ def sizeOptions():
     disp.ShowImage(image2)
     time.sleep(0.1)
     while dispensing == False:
-        if touch.Gestures == 0x03:
+        if touch.Gestures == 0x04:
             drinkSize-=1
             if drinkSize <= 0:
                 drinkSize = 1
-        if touch.Gestures == 0x04:
+        if touch.Gestures == 0x03:
             drinkSize+=1
             if drinkSize > 3 :
                 drinkSize = 3
@@ -109,11 +109,11 @@ try:
             while touch.Gestures == 0x03 or touch.Gestures == 0x04:
                 print('\nTouch Gesture:  ' + str(touch.Gestures))
                 gesture = touch.Gestures
-                if touch.Gestures == 0x03:
+                if touch.Gestures == 0x04:
                     drink_list_index-=1
                     if drink_list_index < 0:
                         drink_list_index = 0
-                if touch.Gestures == 0x04:
+                if touch.Gestures == 0x03:
                     drink_list_index+=1
                     if drink_list_index > len(drink_data) -1 :
                         drink_list_index -= 1
