@@ -105,7 +105,7 @@ try:
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
                 print('\nTouch Gesture:  ' + str(touch.Gestures))
-                gesture = touch.Gesture
+                gesture = touch.Gestures
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
