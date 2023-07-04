@@ -105,6 +105,7 @@ try:
         while True:
             while touch.Gestures != 0x03 or touch.Gestures != 0x04 or touch.Gestures != 0x0C:
                 print('\nTouch Gesture:  ' + str(touch.Gestures))
+                gesture = touch.Gesture
                 if touch.Gestures != 0x03:
                     drink_list_index-=1
                     if drink_list_index < 0:
@@ -116,7 +117,8 @@ try:
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
-                time.sleep(0.1)
+                
+                time.sleep(0.001)
         '''
         #Gestures
         Mode = 0
