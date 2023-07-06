@@ -27,11 +27,11 @@ global Flag
 
 touch = Touch_1inch28.Touch_1inch28()
 
-drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE', 'x': 20, 'y':90},
+drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE', 'x': 25, 'y':90},
                 {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK', 'x': 65, 'y':90},
-                {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK', 'x': 20, 'y':90},
-                {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'OrangeRed', 'x': 55, 'y':90},
-                {'name':'Screwdriver', 'primary_color':'coral','secondary_color':'orange', 'x': 20, 'y':90},
+                {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK', 'x': 15, 'y':90},
+                {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'OrangeRed', 'x': 50, 'y':90},
+                {'name':'Screwdriver', 'primary_color':'coral','secondary_color':'orange', 'x': 15, 'y':90},
                 ]
 
 def Int_Callback(TP_INT):       
