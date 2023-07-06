@@ -120,9 +120,8 @@ try:
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
-                time.sleep(0.001)
                 touch.Gestures = 0x01
-
+                time.sleep(0.01)
             if touch.Gestures == 0x05:
                 touch.Gesture=0x01
                 sizeOptions()
