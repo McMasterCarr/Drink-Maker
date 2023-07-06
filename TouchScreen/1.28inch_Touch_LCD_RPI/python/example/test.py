@@ -77,7 +77,7 @@ def sizeOptions():
         elif drinkSize == 3:
             drink_size_text = 'large'
         draw.text((65, 90), drink_size_text, fill = "WHITE",font=Font)
-        draw.text((40,120), 'hold to select', fill = "WHITE",font=smallFont)
+        draw.text((10,10), 'hold to select', fill = "WHITE",font=smallFont)
         disp.ShowImage(image2)
         time.sleep(0.01)
 
@@ -127,7 +127,7 @@ try:
                         drink_list_index -= 1
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
-                draw.text((40, 120), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
+                draw.text((200, 50), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
                 disp.ShowImage(image1)
                 touch.Gestures = 0x01
                 time.sleep(0.01)
