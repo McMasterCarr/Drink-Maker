@@ -127,7 +127,7 @@ try:
                         drink_list_index -= 1
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
-                draw.text((53, 180), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
+                draw.text((57, 180), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
                 disp.ShowImage(image1)
                 touch.Gestures = 0x01
                 time.sleep(0.01)
