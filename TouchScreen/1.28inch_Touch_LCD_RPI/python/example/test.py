@@ -105,7 +105,7 @@ try:
         touch.Set_Mode(Mode)
         Font1 = ImageFont.truetype("../Font/Font02.ttf",24)
         Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",24)
-        smallFont = ImageFont.truetype("../Font/FlyingBirdFont.ttf",30)
+        smallFont = ImageFont.truetype("../Font/FlyingBirdFont.ttf",25)
         draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
         draw.text((65, 120), 'By Seneca', fill = "BLACK",font=Font)
         disp.ShowImage(image1)
@@ -127,7 +127,7 @@ try:
                         drink_list_index -= 1
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
                 draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
-                draw.text((120, 180), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
+                draw.text((90, 180), 'tap to select', fill = drink_data[drink_list_index]['primary_color'],font=smallFont)
                 disp.ShowImage(image1)
                 touch.Gestures = 0x01
                 time.sleep(0.01)
