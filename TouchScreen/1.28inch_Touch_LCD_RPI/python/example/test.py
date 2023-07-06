@@ -105,7 +105,7 @@ try:
         touch.Set_Mode(Mode)
         Font1 = ImageFont.truetype("../Font/Font02.ttf",24)
         Font = ImageFont.truetype("../Font/FlyingBirdFont.ttf",24)
-        smallFont = ImageFont.truetype("../Font/FlyingBirdFont.ttf",7)
+        smallFont = ImageFont.truetype("../Font/FlyingBirdFont.ttf",15)
         draw.text((65, 80), 'Drink Maker', fill = "BLACK",font=Font)
         draw.text((65, 120), 'By Seneca', fill = "BLACK",font=Font)
         disp.ShowImage(image1)
