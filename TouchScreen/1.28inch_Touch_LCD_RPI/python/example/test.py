@@ -27,11 +27,11 @@ global Flag
 
 touch = Touch_1inch28.Touch_1inch28()
 
-drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE'},
-                {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK'},
-                {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK'},
-                {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'OrangeRed'},
-                {'name':'Screwdriver', 'primary_color':'coral','secondary_color':'orange'},
+drink_data =    [{'name': 'Margarita', 'primary_color': 'LIME','secondary_color': 'WHITE', 'x': 65, 'y':90},
+                {'name':'Mojito', 'primary_color':'green','secondary_color':'BLACK', 'x': 65, 'y':90},
+                {'name':'Manhattan', 'primary_color':'coral','secondary_color':'BLACK', 'x': 65, 'y':90},
+                {'name':'Mimosa', 'primary_color':'LIME','secondary_color':'OrangeRed', 'x': 65, 'y':90},
+                {'name':'Screwdriver', 'primary_color':'coral','secondary_color':'orange', 'x': 65, 'y':90},
                 ]
 
 def Int_Callback(TP_INT):       
@@ -118,7 +118,7 @@ try:
                     if drink_list_index > len(drink_data) -1 :
                         drink_list_index -= 1
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
-                draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
+                draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
                 time.sleep(0.001)
                 touch.Gestures = 0x01
@@ -129,7 +129,7 @@ try:
                 dispensing = False
                 drink_list_index = 0
                 draw.rectangle((0,0,240,240),fill = drink_data[drink_list_index]['secondary_color'], outline=None, width=1)
-                draw.text((65, 90), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
+                draw.text((drink_data[drink_list_index]['x'], drink_data[drink_list_index]['y']), drink_data[drink_list_index]['name'], fill = drink_data[drink_list_index]['primary_color'],font=Font)
                 disp.ShowImage(image1)
             
                 
